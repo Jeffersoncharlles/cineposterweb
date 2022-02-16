@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    background: #2e2e48;
+    color: #f7f7f7;
 }
 
 .app {
