@@ -1,0 +1,1 @@
+export const baseUrl = 'https://sujeitoprogramador.com/r-api/?api=filmes';
