@@ -1,9 +1,14 @@
-
-
+import { Header } from "./components/Header"
+import { MainRoutes } from "./router"
+import './styles/styles.css'
 
 function App() {
+
   return (
-    <h1>Hello World</h1>
+    <div className="app">
+      <Header />
+      <MainRoutes />
+    </div>
   )
 }
 
