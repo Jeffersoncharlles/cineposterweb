@@ -55,7 +55,7 @@ export const Home = () => {
                         <article key={movie.id}>
                             <strong>{movie.nome}</strong>
                             <img src={movie.foto} alt={movie.nome} />
-                            <Link to="/">Acessar</Link>
+                            <Link to={`/filme/${movie.id}`}>Acessar</Link>
                         </article>
                     )
                 })}
