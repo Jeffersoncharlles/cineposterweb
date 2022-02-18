@@ -1,0 +1,33 @@
+.loading {}
+
+.movieInfo {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+}
+
+.movieInfo img {
+    border-radius: 20px;
+}
+
+.movieInfo button {
+    margin-right: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0;
+    font-size: 1rem;
+    outline: none;
+    padding: 1rem;
+    background: #454564;
+    transition: all 0.5s;
+}
+
+.movieInfo button:hover {
+    filter: brightness(0.9);
+}
+
+.containerButton a {
+    text-decoration: none;
+    background: transparent;
+}

@@ -34,8 +34,7 @@ export const Home = () => {
         setIsLoading(true);
         const { data } = await api.get('r-api/?api=filmes')
         if (data) {
-
-            console.log(data)
+            // console.log(data)
             setMovies(data)
         }
         setIsLoading(false);
