@@ -53,6 +53,8 @@ export const Movie = () => {
             navigate('/')
             return;
         }
+
+
         setMovie(data);
         setIsLoading(false);
     }
@@ -74,44 +76,34 @@ export const Movie = () => {
     }
     //======================================================================//
     if (isLoading) {
+
+
         return (
             <h2 className={styles.loading}>Loading your movie</h2>
         )
     }
     //======================================================================//
     return (
-        <>
-            <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                // rtl={false}
-                pauseOnFocusLoss={false}
-                // draggable
-                pauseOnHover={false}
-            />
-            <div className={styles.movieInfo}>
-                <h1>{movie.original_title}</h1>
-                <img src={posterPath + movie.poster_path} alt={movie.original_title} />
+        <div className={styles.movieInfo}>
+            <h1>{movie.original_title}</h1>
+            <img src={posterPath + movie.poster_path} alt={movie.original_title} />
 
-                <h3>Sinopse</h3>
-                {movie.overview}
+            <h3>Sinopse</h3>
+            {movie.overview}
 
-                <div className={styles.containerButton}>
-                    <button onClick={handleSave} className={styles.favorites}>Favorito</button>
-                    <button>
-                        <a
-                            target="blank"
-                            href={`https://www.youtube.com/results?search_query=${movie.original_title} Trailer`}
+            <div className={styles.containerButton}>
+                <button onClick={handleSave} className={styles.favorites}>Favorito</button>
+                <button>
+                    <a
+                        target="blank"
+                        href={`https://www.youtube.com/results?search_query=${movie.original_title} Trailer`}
 
-                        >
-                            Trailer
-                        </a>
-                    </button>
-                </div>
+                    >
+                        Trailer
+                    </a>
+                </button>
             </div>
-        </>
+        </div>
+
     );
 }

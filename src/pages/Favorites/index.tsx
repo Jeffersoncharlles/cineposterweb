@@ -28,9 +28,6 @@ export const Favorites = () => {
         const myList = localStorage.getItem('movies')
         setMoviesFavorite(JSON.parse(myList as string) || [])
 
-
-
-
     }, [])
 
 
@@ -54,18 +51,10 @@ export const Favorites = () => {
 
     return (
         <div className={styles.container}>
-            <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                // rtl={false}
-                pauseOnFocusLoss={false}
-                // draggable
-                pauseOnHover={false}
-            />
+
             <h1>Favoritos</h1>
+
+            {moviesFavorite.length === 0 && <span>Você nao possui nenhum favorito 😔</span>}
 
             <ul>
                 {moviesFavorite.map((movies, index) => {
