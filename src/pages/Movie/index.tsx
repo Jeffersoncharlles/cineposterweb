@@ -48,7 +48,7 @@ export const Movie = () => {
         // const { data } = await api.get(`r-api/?api=filmes/${slug}`);
         const { data } = await api.get(`${slug}?api_key=${key}&language=en-US`);
 
-        console.log(data);
+        //console.log(data);
         if (data.length === 0) {
             navigate('/')
             return;
