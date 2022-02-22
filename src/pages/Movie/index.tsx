@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { api, key } from '../../services/api';
+import { api, key, rest, posterPath2, posterPath } from '../../services/api';
 import styles from './styles.module.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,9 +23,16 @@ const configTost = {
     theme: 'dark'
 }
 
+interface IMyMovie {
+    id: number;
+    original_title: string;
+    poster_path: string;
+    overview: string;
+}
+
 export const Movie = () => {
     const { slug } = useParams();
-    const [movie, setMovie] = useState<IMovie>({} as IMovie)
+    const [movie, setMovie] = useState<IMyMovie>({} as IMyMovie)
     const [isLoading, setIsLoading] = useState(true)
     const navigate = useNavigate();
 
@@ -38,9 +45,10 @@ export const Movie = () => {
     }, [slug, navigate])
     //======================================================================//
     const loadMovie = async (slug: number) => {
-        const { data } = await api.get(`r-api/?api=filmes/${slug}`);
-        //const { data } = await api.get(`popular?api_key=${key}&language=en-US&page=1`);
-        // console.log(data);
+        // const { data } = await api.get(`r-api/?api=filmes/${slug}`);
+        const { data } = await api.get(`${slug}?api_key=${key}&language=en-US`);
+
+        console.log(data);
         if (data.length === 0) {
             navigate('/')
             return;
@@ -85,18 +93,18 @@ export const Movie = () => {
                 pauseOnHover={false}
             />
             <div className={styles.movieInfo}>
-                <h1>{movie.nome}</h1>
-                <img src={movie.foto} alt={movie.nome} />
+                <h1>{movie.original_title}</h1>
+                <img src={posterPath + movie.poster_path} alt={movie.original_title} />
 
                 <h3>Sinopse</h3>
-                {movie.sinopse}
+                {movie.overview}
 
                 <div className={styles.containerButton}>
                     <button onClick={handleSave} className={styles.favorites}>Favorito</button>
                     <button>
                         <a
                             target="blank"
-                            href={`https://www.youtube.com/results?search_query=${movie.nome} Trailer`}
+                            href={`https://www.youtube.com/results?search_query=${movie.original_title} Trailer`}
 
                         >
                             Trailer
