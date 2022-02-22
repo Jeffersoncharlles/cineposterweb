@@ -6,7 +6,7 @@ export const Header = () => {
     return (
         <header>
             <Link to="/" className={styles.logo}>CinePoster</Link>
-            <Link to="/" className={styles.favorites}>Favoritos</Link>
+            <Link to="/favorites" className={styles.favorites}>Favoritos</Link>
         </header>
     );
 }

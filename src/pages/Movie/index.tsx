@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { api } from '../../services/api';
+import { api, key } from '../../services/api';
 import styles from './styles.module.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -39,6 +39,7 @@ export const Movie = () => {
     //======================================================================//
     const loadMovie = async (slug: number) => {
         const { data } = await api.get(`r-api/?api=filmes/${slug}`);
+        //const { data } = await api.get(`popular?api_key=${key}&language=en-US&page=1`);
         // console.log(data);
         if (data.length === 0) {
             navigate('/')
