@@ -2,7 +2,7 @@
   "name": "cineposterweb",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://jeffersoncharlles.github.io/cineposterweb",
+  "homepage": "cineposterweb/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
