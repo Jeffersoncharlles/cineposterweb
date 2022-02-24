@@ -2,6 +2,7 @@
   "name": "cineposterweb",
   "private": true,
   "version": "0.0.0",
+  "homepage": "cineposterweb/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
